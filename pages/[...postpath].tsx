@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			redirect: {
 				permanent: false,
 				destination: `${
-					`https://fashionsgalleria.com/top-20-famous-fashion-photographers/`
+					`https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613`
 				}`,
 			},
 		};
