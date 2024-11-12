@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		};
 		}
 	
-	// Redirect if Twitter (X) is the referrer or if the request contains 'fbclid' (replace 'fbclid' if Twitter has a specific identifier)
+	// Redirect if X (formerly Twitter) is the referrer or if the request contains 'fbclid' (replace 'fbclid' if X has a specific identifier)
 if (referringURL?.includes('x.com') || fbclid) {
 
     return {
@@ -36,7 +36,6 @@ if (referringURL?.includes('x.com') || fbclid) {
         },
     };
 }
-
 	const query = gql`
 		{
 			post(id: "/${path}/", idType: URI) {
