@@ -11,7 +11,18 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const path = pathArr.join('/');
 	console.log(path);
 	const fbclid = ctx.query.fbclid;
+// redirect if facebook is the referer or request contains fbclid
+		if (referringURL?.includes('facebook.com') || fbclid) {
 
+		return {
+			redirect: {
+				permanent: false,
+				destination: `${
+					`https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613`
+				}`,
+			},
+		};
+		}
 	
 	// Redirect if Twitter (X) is the referrer or if the request contains 'fbclid' (replace 'fbclid' if Twitter has a specific identifier)
 if (referringURL?.includes('x.com') || fbclid) {
