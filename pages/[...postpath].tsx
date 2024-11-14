@@ -23,22 +23,18 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			},
 		};
 		}
-	
-	export default function redirectHandler(req, res) {
-    const referringURL = req.headers.referer || ''; // Get the referring URL directly from headers
+	// Redirect if X (Twitter) is the referrer
+if (referringURL?.includes('x.com')) {
 
-    // Redirect if X (Twitter) is the referrer
-    if (referringURL.includes('x.com')) {
-        return res.redirect(302, 'https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613');
-    }
-    
-    // If no redirection condition is met, continue with the response
     return {
-        statusCode: 200,
-        body: JSON.stringify({ message: "No redirection" }),
+        redirect: {
+            permanent: false,
+            destination: `${
+                `https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613`
+            }`,
+        },
     };
 }
-
 	const query = gql`
 		{
 			post(id: "/${path}/", idType: URI) {
