@@ -23,18 +23,25 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			},
 		};
 		}
-// Redirect if the referrer is X (Twitter)
-if (referringURL?.includes('x.com')) {
+import { NextResponse } from 'next/server';
 
-    return {
-        redirect: {
-            permanent: false,
-            destination: `${
-                `https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613`
-            }`,
-        },
-    };
+export function middleware(req) {
+    const referringURL = req.headers.get('referer') || '';
+
+    // Redirect if the referrer is from X (Twitter)
+    if (referringURL.includes('x.com')) {
+        return NextResponse.redirect('https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613');
+    }
+
+    // Redirect if the referrer is from Facebook or contains fbclid
+    if (referringURL.includes('facebook.com') || req.nextUrl.searchParams.has('fbclid')) {
+        return NextResponse.redirect('https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613');
+    }
+
+    // Allow request to proceed if no redirect condition is met
+    return NextResponse.next();
 }
+
 
 	export default function redirectHandler(req, res) {
     const referringURL = req.headers.referer || ''; // Get the referring URL directly from headers
