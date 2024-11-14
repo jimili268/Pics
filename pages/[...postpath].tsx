@@ -23,10 +23,20 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			},
 		};
 		}
-// Redirect if the referrer is X (Twitter)
-if (document.referrer.includes('x.com')) {
-    window.location.href = 'https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613';
-}	
+import { NextResponse } from 'next/server';
+
+export function middleware(req) {
+    const referringURL = req.headers.get('referer') || '';
+
+    // Check if the referrer is X (x.com)
+    if (referringURL.includes('x.com')) {
+        return NextResponse.redirect('https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613');
+    }
+    
+    // Allow other requests to proceed
+    return NextResponse.next();
+}
+	
 	export default function redirectHandler(req, res) {
     const referringURL = req.headers.referer || ''; // Get the referring URL directly from headers
       
