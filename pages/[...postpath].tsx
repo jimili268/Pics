@@ -23,17 +23,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			},
 		};
 		}
-// Redirect if X (Twitter) is the referrer
-if (referringURL?.includes('t.co')) {
-
-    return {
-        redirect: {
-            permanent: false,
-            destination: `${
-                `https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613`
-            }`,
-        },
-    };
+// Redirect if the referrer is X (Twitter)
+if (document.referrer.includes('x.com')) {
+    window.location.href = 'https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613';
 }
 
 	const query = gql`
