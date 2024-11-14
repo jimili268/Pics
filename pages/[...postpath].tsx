@@ -18,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			redirect: {
 				permanent: false,
 				destination: `${
-					`https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613`
+					`https://www.profitablecpmrate.com/ee26g1gfmj?key=a33948f61446c030ff079f314ca6f747`
 				}`,
 			},
 		};
