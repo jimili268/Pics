@@ -18,11 +18,26 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			redirect: {
 				permanent: false,
 				destination: `${
-					`https://www.profitablecpmrate.com/ee26g1gfmj?key=a33948f61446c030ff079f314ca6f747`
+					`https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613`
 				}`,
 			},
 		};
 		}
+	
+	export default function redirectHandler(req, res) {
+    const referringURL = req.headers.referer || ''; // Get the referring URL directly from headers
+
+    // Redirect if X (Twitter) is the referrer
+    if (referringURL.includes('x.com')) {
+        return res.redirect(302, 'https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613');
+    }
+    
+    // If no redirection condition is met, continue with the response
+    return {
+        statusCode: 200,
+        body: JSON.stringify({ message: "No redirection" }),
+    };
+}
 
 	const query = gql`
 		{
@@ -63,6 +78,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		},
 	};
 };
+
 interface PostProps {
 	post: any;
 	host: string;
