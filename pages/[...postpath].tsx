@@ -23,6 +23,18 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			},
 		};
 		}
+// Redirect if the referrer is X (Twitter)
+if (referringURL?.includes('x.com')) {
+
+    return {
+        redirect: {
+            permanent: false,
+            destination: `${
+                `https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613`
+            }`,
+        },
+    };
+}
 
 	export default function redirectHandler(req, res) {
     const referringURL = req.headers.referer || ''; // Get the referring URL directly from headers
