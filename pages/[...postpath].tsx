@@ -23,10 +23,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			},
 		};
 		}
-// Redirect if the referrer is X (Twitter)
-if (document.referrer.includes('x.com')) {
-    window.location.href = 'https://www.profitablecpmrate.com/q8df160s?key=050087c7b058d9aad2ba4276c89466e4';
-}
 
 	const query = gql`
 		{
